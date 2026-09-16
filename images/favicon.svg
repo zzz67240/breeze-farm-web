@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#62c0f0"/><stop offset="1" stop-color="#d0ecfa"/></linearGradient>
+    <clipPath id="r"><rect width="64" height="64" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="64" height="64" fill="url(#sky)"/>
+    <circle cx="52" cy="14" r="7" fill="#ffd65a"/>
+    <ellipse cx="18" cy="52" rx="42" ry="20" fill="#98d07a"/>
+    <ellipse cx="36" cy="66" rx="52" ry="28" fill="#6cbe4a"/>
+    <path d="M-4 52 Q32 34 68 52" fill="none" stroke="#8b5a2b" stroke-width="6"/>
+    <path d="M-4 52 Q32 34 68 52" fill="none" stroke="#aa7640" stroke-width="2"/>
+    <path d="M-4 59 Q32 41 68 59" fill="none" stroke="#8b5a2b" stroke-width="6"/>
+    <path d="M-4 59 Q32 41 68 59" fill="none" stroke="#aa7640" stroke-width="2"/>
+    <path d="M32 53 V40" stroke="#348228" stroke-width="2.6" stroke-linecap="round"/>
+    <ellipse cx="26" cy="40" rx="6" ry="4" fill="#60ba40"/>
+    <ellipse cx="38" cy="36" rx="6" ry="4" fill="#60ba40"/>
+    <path d="M4 26 C14 18 26 30 42 22 C48 19 47 11 40 13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M8 34 C18 28 26 36 36 32 C40 30 39 25 35 26" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+</svg>
