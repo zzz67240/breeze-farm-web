@@ -50,6 +50,7 @@ a { color: inherit; }
   transition: transform 0.12s;
 }
 .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--wood-dark); }
+.btn:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; }
 .btn-small { padding: 8px 18px; font-size: 0.95rem; }
 .btn-cta {
   background: linear-gradient(180deg, #6bc154, var(--leaf));
@@ -159,6 +160,107 @@ a { color: inherit; }
   font-size: 0.9rem;
 }
 
+/* ---------- 種子包：點一下撕開，露出一句提示 ---------- */
+.packets-section { max-width: 1000px; margin: 0 auto; padding: 8px 20px 72px; }
+.packets-section h2 { text-align: center; font-size: 1.6rem; }
+.packets-lead { text-align: center; color: var(--ink-soft); margin: 10px auto 42px; max-width: 34em; }
+.packets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 6 包剛好兩排，不會留下孤單的最後一排 */
+  gap: 30px 24px;
+  align-items: start; /* 撕開一包時，同一排其他包維持原本高度 */
+  max-width: 860px; margin: 0 auto;
+}
+.packet {
+  --kraft: #e6c993;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px;
+  padding: 30px 16px 18px;
+  font: inherit; color: var(--ink); text-align: center;
+  cursor: pointer;
+  /* 牛皮紙：底色加上細細的纖維紋路 */
+  background:
+    repeating-linear-gradient(115deg, rgba(92,58,30,0.05) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #f0d9ab, var(--kraft));
+  border: 3px solid var(--wood-dark);
+  border-radius: 4px 4px 12px 12px;
+  box-shadow: 0 6px 0 rgba(92,58,30,0.35);
+  transition: transform 0.15s;
+}
+/* 封口：上緣一條摺好的紙邊，撕開時往後掀 */
+.packet::before {
+  content: '';
+  position: absolute; left: -3px; right: -3px; top: -3px;
+  height: 22px;
+  background: linear-gradient(180deg, #d4b07a, #c79f66);
+  border: 3px solid var(--wood-dark);
+  border-radius: 4px 4px 0 0;
+  transform-origin: left bottom;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+/* 撕線：封口下面的虛線 */
+.packet::after {
+  content: '';
+  position: absolute; left: 10px; right: 10px; top: 24px;
+  border-top: 2px dashed rgba(92,58,30,0.45);
+}
+.packet:hover { transform: translateY(-2px); }
+.packet:focus-visible { outline: 3px solid var(--leaf); outline-offset: 4px; }
+.packet-window {
+  display: grid; place-items: center;
+  width: 76px; height: 76px; margin-top: 6px;
+  font-size: 2.3rem;
+  background: var(--paper);
+  border: 3px solid var(--wood-dark);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px rgba(242,179,61,0.35);
+}
+.packet-name { font-weight: 900; font-size: 1.08rem; color: var(--wood-dark); }
+.packet-tear { font-size: 0.8rem; color: var(--ink-soft); }
+.packet-hint {
+  display: block;
+  margin-top: 4px;
+  padding: 10px 12px;
+  background: var(--paper);
+  border-radius: 8px;
+  font-size: 0.95rem; line-height: 1.6;
+  text-align: left;
+  box-shadow: inset 0 0 0 2px rgba(92,58,30,0.12);
+}
+/* 我替提示設了 display:block，會蓋過瀏覽器內建的 [hidden]，一定要再明確隱藏一次，不然還沒撕開就看得到提示 */
+.packet-hint[hidden] { display: none; }
+.packet[aria-expanded="true"]::before { transform: rotate(-5deg) translate(-2px, -7px); opacity: 0.85; }
+.packet[aria-expanded="true"] { background: linear-gradient(180deg, #f5e3bd, #ead2a2); }
+
+/* ---------- 常見問題 ---------- */
+.faq-section { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+.faq-section h2 { text-align: center; font-size: 1.6rem; margin-bottom: 22px; }
+.faq-section details {
+  background: var(--paper);
+  border: 3px solid var(--wood-dark);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 0 rgba(92,58,30,0.25);
+}
+.faq-section summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 44px 14px 18px;
+  font-weight: 700; color: var(--wood-dark);
+  position: relative;
+}
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after {
+  content: '＋';
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--wood);
+  font-weight: 900;
+}
+.faq-section details[open] summary::after { content: '－'; }
+.faq-section summary:focus-visible { outline: 3px solid var(--leaf); outline-offset: 2px; border-radius: 9px; }
+.faq-section details p { padding: 0 18px 16px; color: var(--ink-soft); }
+
 /* ---------- 相片牆 ---------- */
 .gallery {
   max-width: 900px; margin: 0 auto;
@@ -243,4 +345,10 @@ a { color: inherit; }
   .br-mobile { display: inline; }
   .board { padding: 28px 18px 24px; }
   .steps li { margin-left: 10px; }
+  .packets { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+  .packet { padding: 28px 10px 14px; }
+  .packet-window { width: 62px; height: 62px; font-size: 1.9rem; }
+  /* 手機上兩包一排太窄，撕開的那一包改成佔滿整排，提示才讀得舒服 */
+  .packet[aria-expanded="true"] { grid-column: 1 / -1; }
+  .packet[aria-expanded="true"] .packet-hint { text-align: center; max-width: 26em; }
 }

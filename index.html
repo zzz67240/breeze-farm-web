@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="微風農場：一個跟朋友一起玩的 3D 低多邊形農場遊戲。種菜、澆水、收成，也可以去朋友的田裡動點歪腦筋。" />
+<meta name="description" content="微風農場：一個跟朋友一起玩的 3D 低多邊形農場遊戲。種菜、澆水、收成、養狗看家，天氣還會跟著台灣走。也可以去朋友的田裡動點歪腦筋。" />
 <title>微風農場 Breeze Farm</title>
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,45 +26,88 @@
       <h1>微風農場</h1>
       <p class="tagline">跟朋友一起種田——<br class="br-mobile">順便看看誰的田比較好偷。</p>
       <a class="btn btn-cta" href="https://breeze-farm.web.app" target="_blank" rel="noopener">🌾 立即遊玩</a>
-      <p class="hint">用 Google 帳號登入，不用另外註冊</p>
+      <p class="hint">免費遊玩，手機、電腦打開網頁就能玩<br>用 Google 帳號登入</p>
     </div>
     <div class="hero-frame">
-      <img src="images/hero-day.jpg" alt="微風農場的 3D 農場畫面：4×4 田地、小屋、遠山和小河" />
+      <img src="images/hero-day.jpg" alt="微風農場的 3D 農場畫面：一整片田地、小屋、遠山和小河" />
     </div>
   </section>
 
-  <section class="board-section">
+  <section class="board-section" aria-labelledby="board-title">
     <div class="board">
       <div class="board-pin"></div>
-      <h2>告示板</h2>
+      <h2 id="board-title">告示板</h2>
       <ul class="board-list">
-        <li>3D 低多邊形農場，白天夜晚不一樣——晚上田邊會點起油燈，天上有星星</li>
-        <li>8 種基本作物，外加 2 款神秘作物：熟成要 8 小時，賣出價格隨機，賭一把的浪漫</li>
-        <li>加好友、互相拜訪——可以幫忙澆水除草除蟲，也可以動點偷菜的歪腦筋</li>
-        <li>主人在家的時候偷菜有機會被抓，被抓到要賠錢</li>
+        <li>3D 低多邊形農場，白天夜晚跟著真實時間走——晚上田邊會點起油燈，天上有星星</li>
+        <li>十多種作物，有的快、有的慢，有的賣多少錢全看運氣</li>
+        <li>加好友、互相拜訪：可以幫忙澆水除草除蟲，也可以動點偷菜的歪腦筋</li>
+        <li>主人在家的時候偷菜，有機會被當場抓到</li>
         <li>田地空著可以出租給朋友種，收成時你能抽一點租金</li>
-        <li>每週排行榜：偷菜、澆水、除草、除蟲，看誰最勤勞（或最手賤）</li>
+        <li>每週排行榜，看誰最勤勞（或最手賤）</li>
       </ul>
+    </div>
+  </section>
+
+  <section class="packets-section" aria-labelledby="packets-title">
+    <h2 id="packets-title">還沒拆開的種子包</h2>
+    <p class="packets-lead">農場裡還藏著一些事。每包只透露一點點，剩下的自己進去找。</p>
+    <div class="packets">
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="packet-window" aria-hidden="true">🐕</span>
+        <span class="packet-name">看家的小狗</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>牠會在田邊晃來晃去。牠吃飽的時候，來偷菜的人會比較緊張。</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="packet-window" aria-hidden="true">🌀</span>
+        <span class="packet-name">跟著台灣變天</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>現實裡颱風來了，農場也逃不掉。平常多看一眼新聞，說不定救得了你的田。</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="packet-window" aria-hidden="true">📈</span>
+        <span class="packet-name">會變的菜價</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>颱風過後，市場跟平常不太一樣。倉庫裡的東西，什麼時候賣最划算？</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="packet-window" aria-hidden="true">🎁</span>
+        <span class="packet-name">神秘的種子</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>每天會有一小段時間，商店裡多出一樣平常沒有的東西。錯過了，就明天見。</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="packet-window" aria-hidden="true">✊</span>
+        <span class="packet-name">敲敲頭</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>朋友在你家閒逛的時候，可以敲他的頭打招呼。被敲的人……最好不要想著逃。</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="packet-window" aria-hidden="true">🤝</span>
+        <span class="packet-name">還沒有朋友？</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>告示板上有一塊地方，也許有人正在等一個一起種田的鄰居。</span>
+      </button>
     </div>
   </section>
 
   <section class="gallery">
     <figure class="photo photo-1">
-      <img src="images/hero-night.jpg" alt="夜晚的農場，田地四角點著油燈" />
+      <img src="images/hero-night.jpg" alt="夜晚的農場，田地四角點著油燈" loading="lazy" />
       <figcaption>入夜之後，油燈會把田照亮</figcaption>
     </figure>
     <figure class="photo photo-2">
-      <img src="images/closeup.jpg" alt="農場作物特寫：番茄、南瓜、西瓜、葡萄等" />
+      <img src="images/closeup.jpg" alt="農場作物特寫：番茄、南瓜、西瓜、葡萄等" loading="lazy" />
       <figcaption>種什麼、種多久，都有各自的脾氣</figcaption>
     </figure>
   </section>
 
-  <section class="steps-section">
-    <h2>怎麼開始</h2>
+  <section class="steps-section" aria-labelledby="steps-title">
+    <h2 id="steps-title">怎麼開始</h2>
     <ol class="steps">
       <li>
         <span class="step-num">1</span>
-        <div><b>登入</b><p>用 Google 帳號登入，不用另外註冊帳號密碼</p></div>
+        <div><b>登入</b><p>用 Google 帳號登入，不用另外註冊</p></div>
       </li>
       <li>
         <span class="step-num">2</span>
@@ -72,16 +115,48 @@
       </li>
       <li>
         <span class="step-num">3</span>
-        <div><b>找朋友一起玩</b><p>把自己的好友碼給對方，兩邊都種好菜之後就能互相拜訪</p></div>
+        <div><b>找朋友一起玩</b><p>把好友碼給朋友；還沒有朋友在玩的話，告示板上也找得到鄰居</p></div>
       </li>
     </ol>
+  </section>
+
+  <section class="faq-section" aria-labelledby="faq-title">
+    <h2 id="faq-title">常見問題</h2>
+    <details>
+      <summary>要付錢嗎？</summary>
+      <p>不用。遊戲完全免費，也沒有廣告。</p>
+    </details>
+    <details>
+      <summary>要下載 App 嗎？</summary>
+      <p>不用。手機或電腦的瀏覽器打開網址就能玩。</p>
+    </details>
+    <details>
+      <summary>一個人玩得起來嗎？</summary>
+      <p>可以，自己種田、養狗、存錢都很完整。不過有朋友會熱鬧很多——互相幫忙，也互相提防。</p>
+    </details>
+    <details>
+      <summary>我沒上線的時候，作物會被偷光嗎？</summary>
+      <p>不會被偷光，每塊田能被拿走的有限。不過成熟太久沒收也是會壞的，有空還是常回來看看。</p>
+    </details>
   </section>
 
 </main>
 
 <footer class="site-footer">
   <p>遊戲內建繁體中文／English 切換，音樂與素材授權列在遊戲「⋯」選單裡。</p>
+  <p class="tech">遊戲中的天氣依據中央氣象署開放資料。</p>
 </footer>
 
+<script>
+  // 種子包：點一下撕開，露出一句提示（再點一次可以收起來）
+  document.querySelectorAll('.packet').forEach((p) => {
+    p.addEventListener('click', () => {
+      const open = p.getAttribute('aria-expanded') !== 'true';
+      p.setAttribute('aria-expanded', String(open));
+      p.querySelector('.packet-hint').hidden = !open;
+      p.querySelector('.packet-tear').textContent = open ? '再點一下收起來' : '點一下撕開';
+    });
+  });
+</script>
 </body>
 </html>
