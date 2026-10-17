@@ -3,49 +3,76 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="微風農場：一個跟朋友一起玩的 3D 低多邊形農場遊戲。種菜、澆水、收成、養狗看家，天氣還會跟著台灣走。也可以去朋友的田裡動點歪腦筋。" />
+<meta name="description" content="微風農場：一個跟朋友一起玩的 3D 低多邊形農場遊戲。種菜、收成、養狗看家、打扮自己的小人，天氣還會跟著台灣走。也可以去朋友的田裡動點歪腦筋。" />
+<meta name="theme-color" content="#8cc9f1" />
+<meta property="og:title" content="微風農場 Breeze Farm" />
+<meta property="og:description" content="跟朋友一起種田，順便看看誰的田比較好偷。手機、電腦打開網頁就能玩。" />
 <title>微風農場 Breeze Farm</title>
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;900&family=Baloo+2:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-in">
-    <span class="wordmark">🌾 微風農場</span>
+    <a class="wordmark" href="#top"><img src="images/favicon.svg" alt="" width="28" height="28" />微風農場</a>
     <a class="btn btn-small" href="https://breeze-farm.web.app" target="_blank" rel="noopener">立即遊玩</a>
   </div>
 </header>
 
-<main>
+<main id="top">
 
   <section class="hero">
-    <div class="hero-text">
-      <h1>微風農場</h1>
-      <p class="tagline">跟朋友一起種田——<br class="br-mobile">順便看看誰的田比較好偷。</p>
-      <a class="btn btn-cta" href="https://breeze-farm.web.app" target="_blank" rel="noopener">🌾 立即遊玩</a>
-      <p class="hint">免費遊玩，手機、電腦打開網頁就能玩<br>用 Google 帳號登入</p>
+    <div class="hero-in">
+      <div class="hero-text">
+        <h1>微風農場</h1>
+        <p class="tagline">跟朋友一起種田，<br />順便看看誰的田比較好偷。</p>
+        <a class="btn btn-cta" href="https://breeze-farm.web.app" target="_blank" rel="noopener">🌾 立即遊玩</a>
+        <p class="hint">免費遊玩，手機、電腦打開網頁就能玩<br />用 Google 帳號登入</p>
+      </div>
+      <figure class="hero-frame">
+        <img src="images/hero-day.jpg" width="1400" height="875" fetchpriority="high" alt="微風農場的 3D 農場畫面：一整片種滿作物的田、小屋、小河，田的後方長著一根很高的藤蔓" />
+      </figure>
     </div>
-    <div class="hero-frame">
-      <img src="images/hero-day.jpg" alt="微風農場的 3D 農場畫面：一整片田地、小屋、遠山和小河" />
-    </div>
+    <svg class="hills" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 70 C180 30 340 30 520 62 C700 94 860 40 1040 46 C1220 52 1330 80 1440 64 V120 H0 Z" fill="#9fd27f" />
+      <path d="M0 96 C220 70 420 84 640 96 C860 108 1060 76 1260 82 C1350 85 1400 92 1440 96 V120 H0 Z" fill="#6fb85a" />
+    </svg>
   </section>
 
   <section class="board-section" aria-labelledby="board-title">
     <div class="board">
-      <div class="board-pin"></div>
+      <span class="nail nail-tl" aria-hidden="true"></span><span class="nail nail-tr" aria-hidden="true"></span>
+      <span class="nail nail-bl" aria-hidden="true"></span><span class="nail nail-br" aria-hidden="true"></span>
       <h2 id="board-title">告示板</h2>
       <ul class="board-list">
         <li>3D 低多邊形農場，白天夜晚跟著真實時間走——晚上田邊會點起油燈，天上有星星</li>
         <li>十多種作物，有的快、有的慢，有的賣多少錢全看運氣</li>
+        <li>每個人都有自己的小人：換臉、換髮色、換衣服戴帽子，穿去朋友家串門子<span class="new-tag">新</span></li>
         <li>加好友、互相拜訪：可以幫忙澆水除草除蟲，也可以動點偷菜的歪腦筋</li>
         <li>主人在家的時候偷菜，有機會被當場抓到</li>
         <li>田地空著可以出租給朋友種，收成時你能抽一點租金</li>
-        <li>每週排行榜，看誰最勤勞（或最手賤）</li>
+        <li>做過的事都會變成成就；每週排行榜和成就榜，看誰最勤勞（或最手賤）<span class="new-tag">新</span></li>
       </ul>
     </div>
+  </section>
+
+  <section class="gallery" aria-label="遊戲畫面">
+    <figure class="photo photo-1">
+      <img src="images/hero-night.jpg" width="1200" height="750" alt="夜晚的農場，田邊點著油燈，藤蔓在夜色裡往上長" loading="lazy" />
+      <figcaption>入夜之後，油燈會把田照亮</figcaption>
+    </figure>
+    <figure class="photo photo-2">
+      <img src="images/avatars.jpg" width="1200" height="750" alt="五個打扮不同的小人站在農場前：巫師帽、草帽、南瓜頭、熊頭帽、蒙面忍者" loading="lazy" />
+      <figcaption>每個人的小人，都長得不太一樣</figcaption>
+    </figure>
+    <figure class="photo photo-3">
+      <img src="images/closeup.jpg" width="900" height="675" alt="農場作物特寫：番茄、南瓜、西瓜、葡萄等" loading="lazy" />
+      <figcaption>種什麼、種多久，都有各自的脾氣</figcaption>
+    </figure>
   </section>
 
   <section class="packets-section" aria-labelledby="packets-title">
@@ -88,33 +115,77 @@
         <span class="packet-tear">點一下撕開</span>
         <span class="packet-hint" hidden>告示板上有一塊地方，也許有人正在等一個一起種田的鄰居。</span>
       </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="stamp">新</span>
+        <span class="packet-window" aria-hidden="true">🌳</span>
+        <span class="packet-name">田邊的樹</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>它們不只是風景。搖一搖，運氣好的話會掉下東西——真的要很好。</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="stamp">新</span>
+        <span class="packet-window" aria-hidden="true">🎩</span>
+        <span class="packet-name">買不到的帽子</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>衣櫥裡有些帽子、衣服和手上拿的東西，不管存多少錢都換不到。</span>
+      </button>
+      <button class="packet" type="button" aria-expanded="false">
+        <span class="stamp">新</span>
+        <span class="packet-window" aria-hidden="true">🏅</span>
+        <span class="packet-name">記在本子上</span>
+        <span class="packet-tear">點一下撕開</span>
+        <span class="packet-hint" hidden>偷了幾次、幫了幾次、收了幾次，農場都記著。記到一個整數，倉庫裡會多一樣東西。</span>
+      </button>
     </div>
   </section>
 
-  <section class="gallery">
-    <figure class="photo photo-1">
-      <img src="images/hero-night.jpg" alt="夜晚的農場，田地四角點著油燈" loading="lazy" />
-      <figcaption>入夜之後，油燈會把田照亮</figcaption>
-    </figure>
-    <figure class="photo photo-2">
-      <img src="images/closeup.jpg" alt="農場作物特寫：番茄、南瓜、西瓜、葡萄等" loading="lazy" />
-      <figcaption>種什麼、種多久，都有各自的脾氣</figcaption>
-    </figure>
+  <section class="sky" aria-labelledby="sky-title">
+    <svg class="vine" viewBox="0 0 160 900" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <path class="vine-stem" d="M78 900 C30 820 120 760 84 680 C50 600 128 540 92 460 C58 380 126 320 90 240 C62 176 112 120 96 40" />
+      <path class="vine-tendril" d="M84 680 C108 668 122 650 112 636 C104 626 94 634 100 642" />
+      <path class="vine-tendril" d="M92 460 C66 446 54 428 64 416 C72 408 82 416 76 424" />
+      <path class="vine-tendril" d="M90 240 C114 228 126 210 116 198 C108 190 98 198 104 206" />
+      <ellipse class="vine-leaf" cx="54" cy="790" rx="30" ry="13" transform="rotate(-28 54 790)" />
+      <ellipse class="vine-leaf alt" cx="116" cy="716" rx="28" ry="12" transform="rotate(24 116 716)" />
+      <ellipse class="vine-leaf" cx="58" cy="572" rx="28" ry="12" transform="rotate(-22 58 572)" />
+      <ellipse class="vine-leaf alt" cx="124" cy="500" rx="26" ry="11" transform="rotate(30 124 500)" />
+      <ellipse class="vine-leaf" cx="60" cy="352" rx="26" ry="11" transform="rotate(-26 60 352)" />
+      <ellipse class="vine-leaf alt" cx="118" cy="290" rx="24" ry="10" transform="rotate(26 118 290)" />
+      <ellipse class="vine-leaf" cx="72" cy="150" rx="22" ry="10" transform="rotate(-30 72 150)" />
+      <ellipse class="vine-leaf alt" cx="118" cy="88" rx="20" ry="9" transform="rotate(28 118 88)" />
+    </svg>
+    <div class="sky-clouds" aria-hidden="true"><span></span><span></span></div>
+    <div class="sky-in">
+      <div class="sky-head">
+        <h2 id="sky-title">抬頭看看。</h2>
+        <p class="sky-lead">有一顆豆子，種下去不會長在田裡。</p>
+      </div>
+      <figure class="sky-view">
+        <img src="images/sky-castle.jpg" width="1600" height="800" alt="雲層上方，三個小人背對著畫面，望向遠處一座城堡" loading="lazy" />
+      </figure>
+      <div class="sky-ground">
+        <div class="sky-copy">
+          <p>它會一直往上長，長到雲上面。朋友來幫忙澆水、施肥，它就長得快一點。</p>
+          <p>至於上面住著誰——要上去才知道。記得找朋友一起。</p>
+          <p class="sky-aside">豆子從哪裡來？那包神秘的種子，也許知道。</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="steps-section" aria-labelledby="steps-title">
     <h2 id="steps-title">怎麼開始</h2>
     <ol class="steps">
       <li>
-        <span class="step-num">1</span>
+        <span class="step-num" aria-hidden="true">1</span>
         <div><b>登入</b><p>用 Google 帳號登入，不用另外註冊</p></div>
       </li>
       <li>
-        <span class="step-num">2</span>
+        <span class="step-num" aria-hidden="true">2</span>
         <div><b>種下第一株作物</b><p>點空地選種子，記得澆水，等它長大再回來收成</p></div>
       </li>
       <li>
-        <span class="step-num">3</span>
+        <span class="step-num" aria-hidden="true">3</span>
         <div><b>找朋友一起玩</b><p>把好友碼給朋友；還沒有朋友在玩的話，告示板上也找得到鄰居</p></div>
       </li>
     </ol>
@@ -131,8 +202,12 @@
       <p>不用。手機或電腦的瀏覽器打開網址就能玩。</p>
     </details>
     <details>
+      <summary>手機玩久了會不會很燙、很耗電？</summary>
+      <p>遊戲會自動認出手機，降低畫面解析度和更新頻率；一段時間沒操作會再更省一點，需要反應的時候才全速跑。</p>
+    </details>
+    <details>
       <summary>一個人玩得起來嗎？</summary>
-      <p>可以，自己種田、養狗、存錢都很完整。不過有朋友會熱鬧很多——互相幫忙，也互相提防。</p>
+      <p>可以，自己種田、養狗、存錢、打扮小人都很完整。不過有朋友會熱鬧很多——互相幫忙，也互相提防；有些地方，也是一群人去比較好玩。</p>
     </details>
     <details>
       <summary>我沒上線的時候，作物會被偷光嗎？</summary>
