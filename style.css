@@ -88,6 +88,11 @@ a { color: inherit; }
   color: var(--wood-dark);
   text-decoration: none;
 }
+.nav-links { display: flex; gap: 26px; margin-left: auto; margin-right: 26px; }
+.nav-links a { text-decoration: none; color: var(--ink-soft); font-weight: 500; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--wood-dark); }
+.nav-links a:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; border-radius: 4px; }
+section[id] { scroll-margin-top: 64px; }
 .wordmark img { border-radius: 7px; box-shadow: 0 0 0 2px var(--wood-dark); }
 .wordmark:focus-visible { outline: 3px solid var(--leaf); outline-offset: 4px; border-radius: 6px; }
 
@@ -153,101 +158,57 @@ a { color: inherit; }
 }
 .new-tag { width: 26px; height: 26px; font-size: 0.82rem; margin-left: 8px; vertical-align: 1px; }
 
-/* ---------- 告示板 ---------- */
-.board-section { padding: 72px 20px 80px; display: flex; justify-content: center; }
-.board {
-  position: relative;
-  max-width: 760px; width: 100%;
-  /* 木紋：幾條很淡的橫向紋理疊在木頭漸層上 */
-  background:
-    repeating-linear-gradient(178deg, rgba(92, 58, 30, 0.09) 0 2px, transparent 2px 19px),
-    repeating-linear-gradient(181deg, rgba(255, 220, 170, 0.08) 0 1px, transparent 1px 11px),
-    linear-gradient(180deg, #c58d55, var(--wood));
+/* ---------- 共用的段落標題 ---------- */
+.section-head { text-align: center; max-width: 34em; margin: 0 auto 56px; padding: 0 20px; }
+.section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); }
+.section-head p { margin-top: 12px; color: var(--ink-soft); }
+
+/* ---------- 玩什麼：四件事，木框截圖＋兩句話，左右交錯 ---------- */
+.features { padding: 96px 20px 112px; }
+.feature-list { max-width: 1040px; margin: 0 auto; display: grid; gap: 88px; }
+.feature { display: grid; grid-template-columns: 7fr 5fr; gap: 56px; align-items: center; }
+.feature-alt { grid-template-columns: 5fr 7fr; }
+.feature-alt .feature-frame { order: 2; transform: rotate(-1deg); }
+.feature-frame {
+  position: relative; margin: 0;
+  background: linear-gradient(160deg, #c48a52, var(--wood) 60%, #8f5d33);
   border: 3px solid var(--wood-dark);
   border-radius: 16px;
-  padding: 30px clamp(18px, 5vw, 44px) 34px;
-  box-shadow: inset 0 2px 0 rgba(255, 230, 190, 0.4), 0 8px 0 var(--wood-dark), 0 24px 40px -18px rgba(58, 42, 26, 0.6);
+  padding: 9px;
+  box-shadow: inset 0 2px 0 rgba(255, 230, 190, 0.45), 0 8px 0 rgba(92, 58, 30, 0.22), 0 24px 36px -16px rgba(58, 42, 26, 0.45);
+  transform: rotate(0.8deg);
 }
-.nail {
-  position: absolute; width: 12px; height: 12px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #e8e2d6, #8a8277 70%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
-}
-.nail-tl { top: 12px; left: 12px; } .nail-tr { top: 12px; right: 12px; }
-.nail-bl { bottom: 12px; left: 12px; } .nail-br { bottom: 12px; right: 12px; }
-.board h2 {
+.feature-frame img { border-radius: 9px; box-shadow: 0 0 0 2px rgba(58, 42, 26, 0.6); aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+/* 角落的小木牌：什麼時候開放 */
+.feature-badge {
+  position: absolute; top: -15px; left: -12px;
+  font-family: var(--font-display); font-size: 0.98rem;
   color: var(--paper);
-  font-size: 1.75rem;
-  text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 0 var(--wood-dark);
+  background: linear-gradient(180deg, #74c95c, var(--leaf));
+  border: 3px solid var(--leaf-dark);
+  border-radius: 10px;
+  padding: 3px 13px 2px;
+  box-shadow: 0 4px 0 var(--leaf-dark);
+  transform: rotate(-5deg);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
 }
-.board-list {
-  list-style: none; margin: 0;
-  background: var(--grain), var(--paper);
-  border-radius: 6px;
-  padding: 10px clamp(16px, 4vw, 28px);
-  box-shadow: 0 2px 0 rgba(92, 58, 30, 0.35);
-  transform: rotate(-0.4deg);
+.feature-alt .feature-badge { left: auto; right: -12px; transform: rotate(5deg); }
+.feature-copy h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.45rem, 2.5vw, 1.8rem);
+  color: var(--wood-dark);
+  margin: 0 0 12px; line-height: 1.35;
 }
-.board-list li {
-  padding: 13px 0 13px 28px;
-  position: relative;
-  border-bottom: 1px dashed rgba(92, 58, 30, 0.25);
-}
-.board-list li:last-child { border-bottom: none; }
-.board-list li::before {
-  content: '🌱';
-  position: absolute; left: 0; top: 13px;
-  font-size: 0.9rem;
-}
-
-/* ---------- 相片：用紙膠帶貼在紙上 ---------- */
-.gallery {
-  max-width: 1120px; margin: 0 auto;
-  padding: 8px 20px 96px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px 32px;
-  align-items: start;
-}
-.photo {
-  margin: 0;
-  position: relative;
-  background: var(--paper);
-  padding: 10px 10px 14px;
-  box-shadow: 0 1px 2px rgba(58, 42, 26, 0.18), 0 14px 26px -12px rgba(58, 42, 26, 0.45);
-}
-.photo::before {
-  content: '';
-  position: absolute; top: -12px; left: 50%;
-  width: 92px; height: 26px;
-  transform: translateX(-50%) rotate(-3deg);
-  background: rgba(242, 179, 61, 0.55);
-  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0 6px, transparent 6px 12px);
-  box-shadow: 0 1px 1px rgba(58, 42, 26, 0.15);
-}
-.photo-1 { transform: rotate(-2.2deg); }
-.photo-2 { transform: rotate(1.2deg); margin-top: 28px; }
-.photo-2::before { background-color: rgba(140, 201, 111, 0.6); transform: translateX(-50%) rotate(2deg); }
-.photo-3 { transform: rotate(2.4deg); }
-.photo-3::before { background-color: rgba(159, 212, 245, 0.7); }
-.photo img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
-.photo figcaption {
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: 0.98rem;
-  color: var(--ink-soft);
-  margin-top: 10px;
-}
+.feature-copy p { font-size: 1.05rem; color: var(--ink-soft); }
+.feature-copy p + p { margin-top: 8px; }
 
 /* ---------- 種子包：點一下撕開，露出一句提示 ---------- */
-.packets-section { max-width: 1000px; margin: 0 auto; padding: 0 20px 104px; }
-.packets-section h2, .steps-section h2, .faq-section h2 { text-align: center; font-size: clamp(1.7rem, 3.4vw, 2.1rem); }
-.packets-lead { text-align: center; color: var(--ink-soft); margin: 12px auto 44px; max-width: 30em; }
+.packets-section { max-width: 1000px; margin: 0 auto; padding: 0 20px 112px; }
+.faq-section h2 { text-align: center; font-size: clamp(1.7rem, 3.4vw, 2.2rem); }
 .packets {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 9 包剛好三排 */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 6 包剛好兩排 */
   gap: 32px 26px;
   align-items: start; /* 撕開一包時，同一排其他包維持原本高度 */
   max-width: 880px; margin: 0 auto;
@@ -374,37 +335,45 @@ a { color: inherit; }
 .sky-clouds span:nth-child(2) { top: 14px; left: -260px; transform: scale(0.6); animation-duration: 100s; animation-delay: -45s; opacity: 0.75; }
 @keyframes drift { to { translate: calc(100vw + 520px) 0; } }
 
-/* ---------- 怎麼開始 ---------- */
-.steps-section { max-width: 720px; margin: 0 auto; padding: 72px 24px 88px; }
-.steps-section h2 { margin-bottom: 38px; }
-.steps { list-style: none; margin: 0; padding: 0; }
-.steps li {
-  display: flex; align-items: flex-start; gap: 18px;
-  padding: 0 0 32px 20px;
-  border-left: 3px dashed var(--wood);
+/* ---------- 開始：夜景當底（油燈照亮的田），三步驟＋按鈕 ---------- */
+.start {
   position: relative;
-  margin-left: 20px;
+  padding: 104px 20px 112px;
+  background:
+    linear-gradient(180deg, rgba(20, 28, 44, 0.78), rgba(20, 28, 44, 0.55) 45%, rgba(20, 28, 44, 0.82)),
+    url("images/hero-night.jpg") center 60% / cover no-repeat,
+    #1d2738;
+  color: #f6ecd6;
+  text-align: center;
 }
-.steps li:last-child { padding-bottom: 4px; border-left-color: transparent; }
+.start-in { max-width: 860px; margin: 0 auto; }
+.start h2 { color: #fff4dc; font-size: clamp(1.8rem, 3.8vw, 2.5rem); text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); }
+.start-steps {
+  list-style: none; margin: 44px 0 48px; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;
+}
+.start-steps li {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 24px 16px 22px;
+  background: rgba(255, 250, 239, 0.1);
+  border: 2px solid rgba(255, 220, 160, 0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+.start-steps b { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; color: #fff4dc; }
+.start-steps li > span:last-child { font-size: 0.94rem; color: rgba(246, 236, 214, 0.85); }
 .step-num {
-  flex: none;
-  width: 40px; height: 40px;
-  display: grid; place-items: center;
-  background: var(--wood);
-  border: 3px solid var(--wood-dark);
-  border-radius: 50%;
-  color: var(--paper);
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  margin-left: -42px;
-  box-shadow: 0 3px 0 var(--wood-dark);
+  width: 40px; height: 40px; display: grid; place-items: center;
+  background: linear-gradient(180deg, #ffd27a, var(--coin));
+  border: 3px solid #a8701c; border-radius: 50%;
+  color: var(--wood-dark); font-family: var(--font-display); font-size: 1.1rem;
+  box-shadow: 0 0 18px rgba(255, 200, 100, 0.55);
+  margin-bottom: 4px;
 }
-.steps li div b { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; color: var(--wood-dark); }
-.steps li div p { margin-top: 2px; color: var(--ink-soft); }
 
 /* ---------- 常見問題 ---------- */
-.faq-section { max-width: 720px; margin: 0 auto; padding: 0 24px 96px; }
-.faq-section h2 { margin-bottom: 24px; }
+.faq-section { max-width: 720px; margin: 0 auto; padding: 96px 24px 104px; }
+.faq-section h2 { margin-bottom: 32px; }
 .faq-section details {
   background: var(--paper);
   border: 2px solid rgba(92, 58, 30, 0.7);
@@ -448,15 +417,18 @@ a { color: inherit; }
 
 /* ---------- 手機 ---------- */
 @media (max-width: 860px) {
-  .gallery { grid-template-columns: 1fr; max-width: 460px; gap: 44px; }
-  .photo-2 { margin-top: 0; }
+  .nav-links { display: none; }
+  .feature, .feature-alt { grid-template-columns: 1fr; gap: 28px; max-width: 560px; margin: 0 auto; }
+  .feature-alt .feature-frame { order: 0; }
+  .feature-list { gap: 64px; }
 }
 @media (max-width: 760px) {
   .hero { padding-top: 32px; }
   .hero-in { grid-template-columns: 1fr; gap: 28px; text-align: center; padding-bottom: 72px; }
   .hero-frame { transform: rotate(-1deg); order: -1; padding: 7px; border-radius: 14px; }
   .tagline { margin: 12px 0 24px; }
-  .board-section { padding: 52px 16px 64px; }
+  .features { padding: 72px 16px 88px; }
+  .section-head { margin-bottom: 44px; }
   .packets-section { padding: 0 16px 88px; }
   /* 手機：種子包改成一包一列、橫著放（左邊小窗、右邊名稱），撕開時提示接在下面——
      不會有落單的一包，撕開時其他包也不會跳位置 */
@@ -482,9 +454,12 @@ a { color: inherit; }
   .sky-view img { object-position: 50% 70%; }
   .sky-copy { padding: 0 20px 32px 64px; text-align: left; }
   .vine { left: 0; width: 64px; bottom: 20px; height: calc(100% - 40px); }
-  .steps-section { padding: 56px 20px 72px; }
-  .steps li { margin-left: 12px; }
-  .faq-section { padding: 0 16px 80px; }
+  .start { padding: 80px 16px 88px; }
+  .start-steps { grid-template-columns: 1fr; gap: 12px; margin: 32px auto 36px; max-width: 360px; }
+  .start-steps li { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; text-align: left; padding: 14px 16px; column-gap: 12px; }
+  .start-steps li .step-num { margin: 0; }
+  .start-steps li > span:last-child { flex-basis: 100%; padding-left: 52px; margin-top: -6px; }
+  .faq-section { padding: 72px 16px 80px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
